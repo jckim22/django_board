@@ -25,9 +25,9 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('board')
+            return redirect('/')
         else:
-            return render(request, 'login.html', {'error': 'username or password is incorrect.'})
+            return render(request, 'login.html', {'error': '멋쟁이사자 회원이 아니거나 아이디, 비밀번호가 틀립니다.'})
     else:
         return render(request, 'login.html')
 
@@ -35,7 +35,7 @@ def login(request):
 # 로그아웃
 def logout(request):
     auth.logout(request)
-    return redirect('home')
+    return redirect('/')
 
 # home
 def home(request):
